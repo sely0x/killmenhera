@@ -108,7 +108,7 @@ input[type="radio"]:checked::after {
     width: 39px;
     height: 39px;
     transform: translateX(-50%) translateY(-50%);
-    background-image: url('./serveyfront/public/favicon.ico');
+    background-image: url('../public/favicon.ico');
     background-size: 39px 39px;
     background-position: center;
     background-repeat: no-repeat;
