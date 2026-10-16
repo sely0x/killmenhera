@@ -1,42 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+
+    display: flex;
+    justify-content: center;
+}
+
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+  margin: 0;
+}
+
+.qbox {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    padding: 0 20px;
+    justify-content: center;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
 .options {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    margin-top: 10px;
 }
 
-.option {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@font-face {
+    font-family: 'unilj';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205-2@1.0/Unilab.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+* {
+    font-family: 'unilj';
+    font-size: 23px;
+    color: oklab(29.919% 0.00796 0.02608);
+}
 
-  min-height: 52px;
-  padding: 12px;
-  box-sizing: border-box;
+.question {
+    background-color: snow;
+    border-radius: 12px;
+    box-shadow: #ddb3ca 3px 3px 13px, #ddb3ca 3px 3px 0;
+    min-height: 120px;
+    max-width: 400px;
+}
 
-  border: 2px solid transparent;
-  border-radius: 6px;
+legend {
+    background-color: white;
+}
 
-  background: #eee;
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 13px;
+  height: 13px;
+  border: 1px solid #777;
+  border-radius: 50%;
+
   cursor: pointer;
-
-  transition: border-color 0.12s;
+  position: relative;
+  margin-right: 12px;
+  flex-shrink: 0;
 }
 
-/* 라디오 동그라미 숨기기 */
-.option input {
-  position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
+input[type="radio"]:checked::after {
+    transition: 0.5s;
+    content: '';
+    display: block;
+    position: absolute;
+    width: 39px;
+    height: 39px;
+    transform: translateX(-50%) translateY(-50%);
+    background-image: url('./serveyfront/public/favicon.ico');
+    background-size: 39px 39px;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: spin-in 0.5s;
+    transform-origin: top left;
 }
 
-/* 선택된 항목 */
+@keyframes spin-in {
+    from {
+        rotate: 180deg;
+        width: 0;
+        height: 0;
+    }
+}
 .option:has(input:checked) {
-  border-color: #7564bc;
+  border-color: #7564bc60;/* 
+  background-image: linear-gradient(270deg, #7564bc40, oklch(62.946% 0.13298 337.209 / 0.251)); */
+}
+.option {
+    padding-left: 4px;
+    padding-right: 4px;
+  border-bottom: 2px solid transparent;
+  border-radius: 1px 2px 3px 1px;
+
+    transition: 0.2s ease-out;
 }
 
-/* 키보드로 선택할 때 */
-.option:has(input:focus-visible) {
-  outline: 2px solid #7564bc;
-  outline-offset: 3px;
+textarea {
+    font-size: 16px;
+     display: block;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+
+    padding: 12px;
+    margin: 0;
+
+    resize: none;
+    outline: none;
+    border: none;
+    background: transparent;
+
+    font: inherit;
+    color: inherit;
+}
+
+textarea::placeholder {
+    color: #777;
+}
+
+@property --color1 {
+    syntax: '<color>';
+    initial-value: #8397E8;
+    inherits: false;
+}
+
+@property --color2 {
+    syntax: '<color>';
+    initial-value: #FF8DBB;
+    inherits: false;
+}
+
+button {
+    border: none;
+    max-width: 150px;
+    height: 30px;
+
+    background: radial-gradient(var(--color1), var(--color2));
+    animation: grad 2s ease-in-out infinite;
+    border: snow solid 1px;
+    border-radius: 4px;
+}
+
+@keyframes grad {
+    0%, 100% {
+        --color1: #8397E8;
+        --color2: #FF8DBB;
+    }
+
+    50% {
+        --color1: #FF8DBB;
+        --color2: #8397E8;
+    }
+}
+
+@property --color3 {
+    syntax: '<color>';
+    initial-value: #ddb3ca;
+    inherits: false;
+}
+
+@property --color4 {
+    syntax: '<color>';
+    initial-value: #ddb3ca50;
+    inherits: false;
+}
+
+@property --color5 {
+    syntax: '<color>';
+    initial-value: #b3bfdd;
+    inherits: false;
+}
+
+
+fieldset > p {
+    padding: 5px;
+}
+
+fieldset:nth-of-type(odd) > p {
+    background-image: repeating-linear-gradient(
+        45deg, 
+        var(--color3) 0px,
+        var(--color3) 0.5px,
+        transparent 1px,
+        transparent 10px
+    );
+    background-color: var(--color4);
+    animation: grad3 ease-in-out infinite 4s;
+}
+fieldset:nth-of-type(even) > p {
+    background-image: repeating-linear-gradient(
+        45deg, 
+        var(--color3) 0px,
+        var(--color3) 0.5px,
+        transparent 1px,
+        transparent 10px
+    );
+    background-color: var(--color4);
+    animation: grad2 ease-in-out infinite 4s;
+}
+
+.question {    
+    background-color: snow;
+    border-radius: 12px;
+    min-height: 120px;
+    max-width: 400px;
+}
+
+.question:nth-of-type(odd) {
+    box-shadow: var(--color3) 3px 3px 13px, var(--color3) 3px 3px 0;
+    animation: grad3 ease-in-out infinite 4s;
+}
+.question:nth-of-type(even) {
+    box-shadow: var(--color3) 3px 3px 13px, var(--color3) 3px 3px 0;
+    animation: grad2 ease-in-out infinite 4s;
+}
+
+body {
+    background-color: #AAA4BE;
+}
+
+@keyframes grad2 {
+    0%, 100% {
+        --color3: #ddb3ca;
+        --color4: #ddb3ca50;
+        --color5: #b3bfdd;
+    }
+
+    50% {
+        --color3: #b3bfdd;
+        --color4: #b3bfdd50;
+        --color5: #ddb3ca;
+    }
+}
+@keyframes grad3 {
+    50% {
+        --color3: #ddb3ca;
+        --color4: #ddb3ca50;
+        --color5: #b3bfdd;
+    }
+
+    0%, 100% {
+        --color3: #b3bfdd;
+        --color4: #b3bfdd50;
+        --color5: #ddb3ca;
+    }
+}
+
+.question:nth-child(even) .option input:checked + span {
+    color: var(--color3);
+    animation: grad2 infinite 0.3s;
+}
+.question:nth-child(odd) .option input:checked + span {
+    color: var(--color3);
+    animation: grad3 infinite 0.3s;
 }

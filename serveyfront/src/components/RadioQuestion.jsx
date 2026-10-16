@@ -1,7 +1,8 @@
 const RadioQuestion = ({ question, value, onChange }) => {
   return (
     <fieldset className="question">
-      <legend>{question.title}</legend>
+      <legend class="sr-only">{question.title}</legend>
+      <p>{question.title}</p>
 
       <div className="options">
         {question.options.map((option, index) => (
