@@ -20,7 +20,7 @@ const RadioQuestion = ({ question, value, onChange, stars }) => {
                 onChange={() => onChange(question.id, optionValue)}
                 style={
                   star
-                    ? { '--star': `url('./stars/${star}')` }
+                    ? { '--star': `url('/stars/${star}')` }
                     : {}
                 }
               />
