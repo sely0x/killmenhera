@@ -122,7 +122,7 @@ const WritePage = () => {
           stars={selectedStars}
         />
 
-        <button type="submit">끗</button>
+        <button type="submit" className='special'>끗</button>
       </form>
     </main>
   );
