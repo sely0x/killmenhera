@@ -81,7 +81,7 @@ const WritePage = () => {
 
   return (
     <main>
-      <h1>정병 해결 일지 - 아직 디자인 안 했으니까 밤티라고 욕하지마라</h1>
+      <h1>디자인 걍 하다 맒.. 흐린눈해주샘ㅎㅎ</h1>
 
       <form className="qbox" onSubmit={handleSubmit}>
 
