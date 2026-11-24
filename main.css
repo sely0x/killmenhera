@@ -1,0 +1,48 @@
+.btn {
+    width: 150px;
+    max-width: 100%;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+
+    border: 1px solid snow;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.s {
+    background: radial-gradient(
+        var(--color1),
+        var(--color2)
+    );
+
+    animation: grad 2s ease-in-out infinite;
+}
+
+@property --color1 {
+    syntax: '<color>';
+    initial-value: #8397E8;
+    inherits: false;
+}
+
+@property --color2 {
+    syntax: '<color>';
+    initial-value: #FF8DBB;
+    inherits: false;
+}
+
+@keyframes grad {
+    0%, 100% {
+        --color1: #8397E8;
+        --color2: #FF8DBB;
+    }
+
+    50% {
+        --color1: #FF8DBB;
+        --color2: #8397E8;
+    }
+}

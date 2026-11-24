@@ -87,7 +87,6 @@ const ResultPage = () => {
             <p>사회성: {getResult('social', stats.social)}</p>
             <p>나대는 정도: {getResult('jiral', stats.jiral)}</p>
 
-            <p>Put </p>
 
             <p>I wouldn't let a momment pass</p>
         </main>
