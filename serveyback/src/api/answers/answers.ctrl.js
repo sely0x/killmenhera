@@ -148,3 +148,29 @@ export const stats = async ctx => {
         };
     }
 };
+
+const getFieldArray = async (field) => {
+    const answers = await Answer.find().select(`body.${field} -_id`);
+
+    return answers
+        .map(answer => answer.body?.[field])
+        .filter(value => typeof value === 'string');
+};
+
+export const messages = async ctx => {
+    try {
+        ctx.body = await getFieldArray('message');
+    } catch (e) {
+        ctx.status = 500;
+        ctx.body = { error: e.message };
+    }
+};
+
+export const problems = async ctx => {
+    try {
+        ctx.body = await getFieldArray('problem');
+    } catch (e) {
+        ctx.status = 500;
+        ctx.body = { error: e.message };
+    }
+};
