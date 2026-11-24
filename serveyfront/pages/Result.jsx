@@ -43,8 +43,7 @@ const labels = {
 const getResult = (field, average) => {
     if (average == null || !Number.isFinite(average)) {
         return '-';
-    }
-
+}
     const options = labels[field];
 
     // 반올림한 값으로 평가 결정
@@ -88,8 +87,8 @@ const ResultPage = () => {
             <p>나대는 정도: {getResult('jiral', stats.jiral)}</p>
 
 
-            <p>I wouldn't let a momment pass</p>
-        </main>
+            {/* <p>I wouldn't let a momment pass</p> 
+         */}</main>
     );
 };
 
