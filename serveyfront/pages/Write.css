@@ -414,3 +414,10 @@ button.special {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+.ansholder {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
